@@ -1,0 +1,121 @@
+package com.jagex.texture;
+
+import com.jagex.ByteBuffer;
+import com.jagex.CacheArchive;
+
+public final class MaterialType {
+	private MaterialType() {
+	}
+
+	public static void unpackConfig(CacheArchive streamLoader) {
+		byte[] data = streamLoader.getDataForName("textures.dat");
+		ByteBuffer buffer = new ByteBuffer(data);
+		int count = buffer.readUnsignedWord();
+		textures = new MaterialType[count];
+		for (int i = 0; i != count; ++i)
+			if (buffer.readUnsignedByte() == 1)
+				textures[i] = new MaterialType();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1223 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1204 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1205 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1217 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1225 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1214 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1213 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aShort1221 = (short) buffer.readUnsignedWord();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1211 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1203 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1222 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1216 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aByte1207 = buffer.readSignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1212 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1210 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].aBoolean1215 = buffer.readUnsignedByte() == 1;
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].anInt1202 = buffer.readUnsignedByte();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].anInt1206 = buffer.readDWord();
+
+		for (int i = 0; i != count; ++i)
+			if (textures[i] != null)
+				textures[i].anInt1226 = buffer.readUnsignedByte();
+
+	}
+
+	public static void nullLoader() {
+		textures = null;
+	}
+
+	public boolean aBoolean1223;
+	public boolean aBoolean1204;
+	boolean aBoolean1205;
+	byte aByte1217;
+	byte aByte1225;
+	byte aByte1214;
+	byte aByte1213;
+	short aShort1221;
+	byte aByte1211;
+	byte aByte1203;
+	boolean aBoolean1222;
+	boolean aBoolean1216;
+	byte aByte1207;
+	boolean aBoolean1212;
+	boolean aBoolean1210;
+	boolean aBoolean1215;
+	int anInt1202;
+	int anInt1206;
+	public int anInt1226;
+	public static MaterialType[] textures;
+}
